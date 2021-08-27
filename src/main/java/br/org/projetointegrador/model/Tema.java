@@ -7,11 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name = "tb_temas")
@@ -30,8 +30,7 @@ public class Tema{
 		@NotNull(message = "Palavra chave é obrigatório")
 		private String palavraChave;	
 		
-		@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
-		@JsonIgnoreProperties("tema")
+	
 		
 		public String getTemaTipo() {
 			return temaTipo;
