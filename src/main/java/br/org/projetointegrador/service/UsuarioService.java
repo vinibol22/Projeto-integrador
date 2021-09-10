@@ -1,8 +1,6 @@
 package br.org.projetointegrador.service;
 
 import java.nio.charset.Charset;
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,16 +59,19 @@ public class UsuarioService {
 	
 	public Optional <Usuario> atualizarUsuario(Usuario usuario){
 		
-		
-		if(usuarioRepository.findByUsuario(usuario.getUsuario()).isPresent())
-			throw new ResponseStatusException(
-				HttpStatus.BAD_REQUEST, "Usuário já existe!!!!!!!!", null);
-		
-		
+	
 		
 		if(usuarioRepository.findById(usuario.getId()).isPresent()) {
 			
-		
+		Optional<Usuario>buscaUsuario=usuarioRepository.findByUsuario(usuario.getUsuario());
+				if(buscaUsuario.isPresent()) {
+					if(buscaUsuario.get().getId() != usuario.getId())
+						throw new ResponseStatusException(
+				HttpStatus.BAD_REQUEST, "Usuário já existe!!!!!!!!", null);	
+				}
+			
+			
+	
 					
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 			
