@@ -47,9 +47,9 @@ public class Postagem {
 	private Tema tema;
 	
 
-	/*@ManyToOne
+	@ManyToOne
 	@JsonIgnoreProperties("postagem")
-	private Usuario usuario;*/
+	private Usuario usuario;
 	
 	
 	
@@ -99,6 +99,14 @@ public class Postagem {
 
 	public void setTema(Tema tema) {
 		this.tema = tema;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	}

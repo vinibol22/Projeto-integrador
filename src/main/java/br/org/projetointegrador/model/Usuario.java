@@ -31,6 +31,9 @@ public class Usuario {
 	@Size(min = 5, max = 255, message="o atributo nome deve ter no minimo 5 e no máximo 255 carácteres")
 	private String nome;
 	
+	@NotNull(message = "O atributo Usuário é Obrigatório!")
+	private String usuario;
+	
 	@NotNull(message ="o atributo e-mail é obrigatório")	
 	@Size(min = 5, max = 255, message="o atributo e-mail deve ter no minimo 5 e no máximo 255 carácteres")
 	private String email;
@@ -47,9 +50,11 @@ public class Usuario {
 	
 
 	
-	/*@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
-	private List<Postagem>postagem;*/
+	private List<Postagem>postagem;
+	
+	
 
 	public long getId() {
 		return id;
@@ -89,6 +94,22 @@ public class Usuario {
 
 	public void setColetor(String coletor) {
 		this.coletor = coletor;
+	}
+
+	public List<Postagem> getPostagem() {
+		return postagem;
+	}
+
+	public void setPostagem(List<Postagem> postagem) {
+		this.postagem = postagem;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 
