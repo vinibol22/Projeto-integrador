@@ -69,10 +69,6 @@ public class UsuarioService {
 						throw new ResponseStatusException(
 				HttpStatus.BAD_REQUEST, "Usuário já existe!!!!!!!!", null);	
 				}
-			
-			
-	
-					
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 			
 			String senhaEncoder = encoder.encode(usuario.getSenha());
